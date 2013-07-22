@@ -1,0 +1,15 @@
+{% extends "dirapp/base.html" %}
+{% block main %}
+{% include 'dirapp/pagetitle.html' with inctitle='Detail' incdesc='User Detail' %}
+<br />
+<table class="table table-striped" style="width: 500px" align="center">
+<tbody>
+    <tr><td>username</td><td>{{ object.user }}</td></tr>
+    <tr><td>email</td><td>{{ object.user.email }}</td></tr>
+    <tr><td>first name</td><td>{{ object.user.first_name }}</td></tr>
+    <tr><td>last name</td><td>{{ object.user.last_name }}</td></tr>
+    <tr><td>address</td><td>{{ object.Address }}</td></tr>
+    <tr><td>photo</td><td><img src="{{ object.Photo.url }}" /></td></tr>
+</tbody>
+</table>
+{% endblock %}

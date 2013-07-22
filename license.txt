@@ -1,0 +1,8 @@
+GNU/GPL
+
+Images:
+media/photos/default.jpg - link: http://pixabay.com/en/flower-circle-cartoon-sheep-mouth-47527/,
+    author: Nemo, license: Public Domain
+
+Template:
+andia-template - link: http://azmind.com/2012/12/28/free-html-template-andia-responsive-agency-portfolio-template-twitter-bootstrap/

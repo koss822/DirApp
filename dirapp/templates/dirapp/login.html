@@ -1,0 +1,16 @@
+{% extends "dirapp/base.html" %}
+{% block main %}
+{% include 'dirapp/pagetitle.html' with inctitle='Login' incdesc='User Login' %}
+{% if errors %}
+    {% for error in errors %}
+        <li><strong>{{ error }}</strong></li>
+    {% endfor %}
+{% endif %}
+<div class="contact-us container"><div class="row"><div class="contact-form span7">
+<form action="{% url 'dirapp:login' %}?target={{ current_path }}" method="POST">
+    {{ form.as_p }}{% csrf_token %}
+    <input type="hidden" name="next" value="{{ next }}">
+    <p><input type="submit" value="Login" class="submit" style="color: #ffffff"></p>
+</form>
+</div></div></div>
+{% endblock %}

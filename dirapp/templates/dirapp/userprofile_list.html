@@ -1,0 +1,43 @@
+{% extends "dirapp/base.html" %}
+{% block main %}
+        <!-- Portfolio -->
+        <div class="portfolio portfolio-page container">
+            <div class="row">
+
+                    <form action="" method="get">
+          <input type="text" name="q" value="{{ q }}" style="margin-bottom: 0px"> <input type="submit" class="submit" value="Search" style="margin-top: 0px">
+</form>
+            </div>
+            <div class="row">
+                <ul class="portfolio-img">
+                    {% for user in object_list %}
+                    <li data-id="p-1" data-type="web-design" class="span3">
+                        <div class="work" style="height: 150px">
+                            <br />
+                            <a href="{% url 'dirapp:detail' user.id %}" rel="prettyPhoto">
+                                <img src="{{ user.Photo.url }}" alt="">
+                            </a>
+                            <a href="{% url 'dirapp:detail' user.id %}"><h4>{{ user.user.first_name }} {{ user.user.last_name }}</h4></a>
+                            <p></p>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="pagination">
+    {% if object_list.has_previous %}
+        <a href="?page={{ object_list.previous_page_number }}">previous</a>
+    {% endif %}
+    Page {{ object_list.number }} of {{ object_list.paginator.num_pages }}.
+    {% if object_list.has_next %}
+        <a href="?page={{ object_list.next_page_number }}">next</a>
+    {% endif %}
+</div>
+            </div>
+        </footer>
+{% endblock %}

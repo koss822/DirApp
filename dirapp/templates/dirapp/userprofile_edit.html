@@ -1,0 +1,16 @@
+{% extends "dirapp/base.html" %}
+{% block main %}
+{% include 'dirapp/pagetitle.html' with inctitle='Profile' incdesc='Edit my user profile' %}
+{% if notice %}
+    <p><strong>{{ notice }}</strong></p>
+{% endif %}
+    <div class="contact-us container"><div class="row"><div class="contact-form span7">
+    <form enctype="multipart/form-data" method="post" action="">
+    {% csrf_token %}
+    {{ userform.as_p }}
+    {{ form.as_p }}
+    {{ passform.as_p }}
+<input type="submit" value="Edit" class="submit" style="color: #ffffff">
+</form>
+</div></div></div>
+{% endblock %}
